@@ -1,38 +1,35 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <title>CUBA</title>
-  </head>
-  <body>
-    <nav class="navbar navbar-light bg-light">
-      <span class="navbar-brand">CUBA</span>
-    </nav>
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <label class="form-control border-0 font-weight-bold">1</label>
-        </div>
-        <div class="col">
-          <input type="number" min="0" max="59" class="form-control" placeholder="minutes" id="m-1">
-        </div>
-        <div class="col">
-          <input type="number" min="0" max="59" class="form-control" placeholder="seconds" id="s-1">
-        </div>
-        <div class="col">
-          <input type="number" min="0" max="999" class="form-control" placeholder="milliseconds" id="ms-1">
-        </div>
+---
+title: Home
+---
+
+<form>
+
+  {% for i in (1..5) %}
+
+    <div class="form-row mb-3">
+      <div class="col">
+        <input type="number" min="0" max="59" class="form-control" placeholder="00" id="m{{ i }}">
       </div>
-      <div class="row">
-        <div class="col">
-          <div id="score" class="display-1 text-right">32.567</div>
-        </div>
+      <div class="col">
+        <input type="number" min="0" max="59" class="form-control" placeholder="00" id="s{{ i }}">
+      </div>
+      <div class="col">
+        <input type="number" min="0" max="999" class="form-control" placeholder="000" id="ms{{ i }}">
       </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  </body>
-</html>
+
+  {% endfor %}
+
+  <div class="form-row mb-3">
+    <div class="col">
+      <input type="submit" class="btn btn-block btn-primary" value="Get Score">
+    </div>
+  </div>
+
+  <div class="form-row mb-3">
+    <div class="col">
+      <input type="reset" class="btn btn-block btn-outline-secondary" value="Clear">
+    </div>
+  </div>
+
+</form>
