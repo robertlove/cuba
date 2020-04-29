@@ -6,6 +6,10 @@ layout: null
 
 $(function() {
 
+  $('input[type="reset"]').click(function() {
+    $('#result').text('00:00:000');
+  });
+
   $('form').submit(function(event) {
 
     var scores = [];
@@ -51,6 +55,13 @@ $(function() {
     console.log('SCORES TOTAL', total);
     var average = total / 3;
     console.log('SCORES AVERAGE', average);
+
+    var minutes = Math.floor(average / 60000);
+    var seconds = ((average % 60000) / 1000).toFixed(0);
+
+    var result = minutes + ":" + (seconds < 10 ? '0' : '') + seconds
+
+    $('#result').text(result);
 
     event.preventDefault();
 
