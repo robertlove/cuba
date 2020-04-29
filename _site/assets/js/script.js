@@ -24,85 +24,140 @@ $(function() {
 
       var score1 = 0;
 
-      var m1  = $('#m1').val();
-      var s1  = $('#s1').val();
-      var ms1 = $('#ms1').val();
+      var m1  = parseInt($('#m1').val());
+      var s1  = parseInt($('#s1').val());
+      var ms1 = parseInt($('#ms1').val());
 
       if (m1 > 0) {
-        m1 = m1 / 60000;
+        m1 = m1 * 60000;
+      } else {
+        m1 = 0;
       }
 
       if (s1 > 0) {
-        s1 = s1 / 1000;
+        s1 = s1 * 1000;
+      } else {
+        s1 = 0;
       }
+
+      if (ms1 > 0) {
+        ms1 = ms1;
+      } else {
+        ms1 = 0;
+      }
+
       score1 = m1 + s1 + ms1;
 
     
 
       var score2 = 0;
 
-      var m2  = $('#m2').val();
-      var s2  = $('#s2').val();
-      var ms2 = $('#ms2').val();
+      var m2  = parseInt($('#m2').val());
+      var s2  = parseInt($('#s2').val());
+      var ms2 = parseInt($('#ms2').val());
 
       if (m2 > 0) {
-        m2 = m2 / 60000;
+        m2 = m2 * 60000;
+      } else {
+        m2 = 0;
       }
 
       if (s2 > 0) {
-        s2 = s2 / 1000;
+        s2 = s2 * 1000;
+      } else {
+        s2 = 0;
       }
+
+      if (ms2 > 0) {
+        ms2 = ms2;
+      } else {
+        ms2 = 0;
+      }
+
       score2 = m2 + s2 + ms2;
 
     
 
       var score3 = 0;
 
-      var m3  = $('#m3').val();
-      var s3  = $('#s3').val();
-      var ms3 = $('#ms3').val();
+      var m3  = parseInt($('#m3').val());
+      var s3  = parseInt($('#s3').val());
+      var ms3 = parseInt($('#ms3').val());
 
       if (m3 > 0) {
-        m3 = m3 / 60000;
+        m3 = m3 * 60000;
+      } else {
+        m3 = 0;
       }
 
       if (s3 > 0) {
-        s3 = s3 / 1000;
+        s3 = s3 * 1000;
+      } else {
+        s3 = 0;
       }
+
+      if (ms3 > 0) {
+        ms3 = ms3;
+      } else {
+        ms3 = 0;
+      }
+
       score3 = m3 + s3 + ms3;
 
     
 
       var score4 = 0;
 
-      var m4  = $('#m4').val();
-      var s4  = $('#s4').val();
-      var ms4 = $('#ms4').val();
+      var m4  = parseInt($('#m4').val());
+      var s4  = parseInt($('#s4').val());
+      var ms4 = parseInt($('#ms4').val());
 
       if (m4 > 0) {
-        m4 = m4 / 60000;
+        m4 = m4 * 60000;
+      } else {
+        m4 = 0;
       }
 
       if (s4 > 0) {
-        s4 = s4 / 1000;
+        s4 = s4 * 1000;
+      } else {
+        s4 = 0;
       }
+
+      if (ms4 > 0) {
+        ms4 = ms4;
+      } else {
+        ms4 = 0;
+      }
+
       score4 = m4 + s4 + ms4;
 
     
 
       var score5 = 0;
 
-      var m5  = $('#m5').val();
-      var s5  = $('#s5').val();
-      var ms5 = $('#ms5').val();
+      var m5  = parseInt($('#m5').val());
+      var s5  = parseInt($('#s5').val());
+      var ms5 = parseInt($('#ms5').val());
 
       if (m5 > 0) {
-        m5 = m5 / 60000;
+        m5 = m5 * 60000;
+      } else {
+        m5 = 0;
       }
 
       if (s5 > 0) {
-        s5 = s5 / 1000;
+        s5 = s5 * 1000;
+      } else {
+        s5 = 0;
       }
+
+      if (ms5 > 0) {
+        ms5 = ms5;
+      } else {
+        ms5 = 0;
+      }
+
       score5 = m5 + s5 + ms5;
 
     
@@ -115,15 +170,15 @@ $(function() {
       score5
     ];
 
-    console.log(scores);
-    console.log('Sorting...');
-
+    console.log('SCORES', scores);
     scores.sort();
-
-    console.log(scores);
-    console.log('Splicing...');
-
-    scores.splice(0, 2);
+    console.log('SCORES SORTED', scores);
+    scores.splice(3, 2);
+    console.log('SCORES SPLICED', scores);
+    var total = scores.reduce((a, b) => a + b, 0);
+    console.log('SCORES TOTAL', total);
+    var average = total / 3;
+    console.log('SCORES AVERAGE', average);
 
     event.preventDefault();
   });
