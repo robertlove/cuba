@@ -4,6 +4,32 @@ layout: null
 
 {% include_relative jquery.min.js %}
 
+function msToTime(duration) {
+  var milliseconds = parseInt((duration % 1000) / 100);
+  var seconds = parseInt((duration / 1000) % 60);
+  var minutes = parseInt((duration / (1000 * 60)) % 60);
+
+  if (minutes < 10) {
+    minutes = '0' + minutes;
+  }
+
+  if (seconds < 10) {
+    seconds = '0' + seconds;
+  }
+
+  if (milliseconds < 100) {
+    if (milliseconds < 10) {
+      milliseconds = '00' + milliseconds;
+    } else {
+      milliseconds = '0' + milliseconds;
+    }
+  }
+
+  // minutes = (minutes < 10) ? "0" + minutes : minutes;
+  // seconds = (seconds < 10) ? "0" + seconds : seconds;
+  return minutes + ":" + seconds + ":" + milliseconds;
+}
+
 $(function() {
 
   $('input[type="reset"]').click(function() {
@@ -56,10 +82,7 @@ $(function() {
     var average = total / 3;
     console.log('SCORES AVERAGE', average);
 
-    var minutes = Math.floor(average / 60000);
-    var seconds = ((average % 60000) / 1000).toFixed(0);
-
-    var result = minutes + ":" + (seconds < 10 ? '0' : '') + seconds
+    var result = msToTime(average);
 
     $('#result').text(result);
 
