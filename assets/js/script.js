@@ -4,19 +4,16 @@ layout: null
 
 {% include_relative jquery.min.js %}
 
-function msToTime(duration) {
-  var milliseconds = parseInt((duration % 1000) / 100);
-  var seconds = parseInt((duration / 1000) % 60);
-  var minutes = parseInt((duration / (1000 * 60)) % 60);
-
+function msToTime(ms) {
+  var milliseconds = parseInt((ms % 1000) / 100);
+  var seconds = parseInt((ms / 1000) % 60);
+  var minutes = parseInt((ms / (1000 * 60)) % 60);
   if (minutes < 10) {
     minutes = '0' + minutes;
   }
-
   if (seconds < 10) {
     seconds = '0' + seconds;
   }
-
   if (milliseconds < 100) {
     if (milliseconds < 10) {
       milliseconds = '00' + milliseconds;
@@ -24,9 +21,6 @@ function msToTime(duration) {
       milliseconds = '0' + milliseconds;
     }
   }
-
-  // minutes = (minutes < 10) ? "0" + minutes : minutes;
-  // seconds = (seconds < 10) ? "0" + seconds : seconds;
   return minutes + ":" + seconds + ":" + milliseconds;
 }
 
