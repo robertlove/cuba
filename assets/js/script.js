@@ -43,6 +43,9 @@ $(function() {
     scores.sort();
 
     console.log(scores);
+    console.log('Splicing...');
+
+    scores.splice(0, 2);
 
     event.preventDefault();
   });
