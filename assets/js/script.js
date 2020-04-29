@@ -10,6 +10,8 @@ $(function() {
 
   $('form').submit(function(event) {
 
+    var scores = [];
+
     {% for i in (1..5) %}
 
       var score{{ i }} = 0;
@@ -38,15 +40,9 @@ $(function() {
 
       score{{ i }} = m{{ i }} + s{{ i }} + ms{{ i }};
 
-    {% endfor %}
+      scores.push(score{{ i }});
 
-    var scores = [
-      score1,
-      score2,
-      score3,
-      score4,
-      score5
-    ];
+    {% endfor %}
 
     console.log('SCORES', scores);
     scores.sort();
@@ -59,6 +55,7 @@ $(function() {
     console.log('SCORES AVERAGE', average);
 
     event.preventDefault();
+
   });
 
 });

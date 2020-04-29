@@ -20,6 +20,8 @@ $(function() {
 
   $('form').submit(function(event) {
 
+    var scores = [];
+
     
 
       var score1 = 0;
@@ -47,6 +49,8 @@ $(function() {
       }
 
       score1 = m1 + s1 + ms1;
+
+      scores.push(score1);
 
     
 
@@ -76,6 +80,8 @@ $(function() {
 
       score2 = m2 + s2 + ms2;
 
+      scores.push(score2);
+
     
 
       var score3 = 0;
@@ -103,6 +109,8 @@ $(function() {
       }
 
       score3 = m3 + s3 + ms3;
+
+      scores.push(score3);
 
     
 
@@ -132,6 +140,8 @@ $(function() {
 
       score4 = m4 + s4 + ms4;
 
+      scores.push(score4);
+
     
 
       var score5 = 0;
@@ -160,15 +170,9 @@ $(function() {
 
       score5 = m5 + s5 + ms5;
 
-    
+      scores.push(score5);
 
-    var scores = [
-      score1,
-      score2,
-      score3,
-      score4,
-      score5
-    ];
+    
 
     console.log('SCORES', scores);
     scores.sort();
@@ -181,6 +185,7 @@ $(function() {
     console.log('SCORES AVERAGE', average);
 
     event.preventDefault();
+
   });
 
 });
